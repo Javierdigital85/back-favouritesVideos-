@@ -3,6 +3,7 @@ import Video from "./Video";
 
 export const createVideos: RequestHandler = async (req, res) => {
   const videoFound = await Video.findOne({ url: req.body.url });
+  console.log(videoFound)
   if (videoFound)
     return res.status(301).json({ message: "The url already exist" });
 
